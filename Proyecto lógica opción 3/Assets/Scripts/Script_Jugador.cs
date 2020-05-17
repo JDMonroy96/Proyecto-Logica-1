@@ -17,6 +17,7 @@ public class Script_Jugador : MonoBehaviour
     public bool cero_clicks = true;
     public int numero_escena;
     public int nivel_completado;
+    public bool meta_alcanzada;
 
     private void Start()
     {
@@ -24,6 +25,9 @@ public class Script_Jugador : MonoBehaviour
         rb.isKinematic = true;//este método, impide que el jugador sea afectado por fuerzas al inicio del 
                               //juego (excepto gravedad)
         rb.gravityScale = 0;//se pone la gravedad en 0 para que no caiga al inicio del nivel
+
+        //Se establece el nivel como no terminado
+        meta_alcanzada = false;
 
         //se asigna a una variable el número de la escena
         numero_escena = SceneManager.GetActiveScene().buildIndex;
@@ -35,28 +39,32 @@ public class Script_Jugador : MonoBehaviour
     //Metodo que actuará cada que haya una colisión
     private void OnTriggerEnter2D(Collider2D collision)
     {
-    //Condicional que indica si al haber contacto con el objeto de intercambio de color, asigne un color aleatorio
-        if(collision.tag == "intercambio")
+        //condicional para cuando el jugador termine el nivel, y no se resetee en caso de chocar con un obstáculo
+        if (!meta_alcanzada)
         {
-            asignarColor();
-            Destroy(collision.gameObject);
-            return;
-        }
-        //Condicional para cuando el jugador toque la meta
-        else if (collision.tag == "Meta")
-        {
-           
-            if (numero_escena > nivel_completado)
+            //Condicional que indica si al haber contacto con el objeto de intercambio de color, asigne un color aleatorio
+            if (collision.tag == "intercambio")
             {
-                PlayerPrefs.SetInt("NivelCompletado", numero_escena);
+                asignarColor();
+                Destroy(collision.gameObject);
+                return;
             }
-            //Se invoca el método que muestra el menú de niveles luego de un segundo
-            Invoke ("CargarMenu", 1f);
-        }
-        //Condicional diseñado para cuando el jugador toque un obstáculo con color diferente al suyo
-        else if (collision.tag != color_actual)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //Condicional para cuando el jugador toque la meta
+            else if (collision.tag == "Meta")
+            {
+                meta_alcanzada = true;
+                if (numero_escena > nivel_completado)
+                {
+                    PlayerPrefs.SetInt("NivelCompletado", numero_escena);
+                }
+                //Se invoca el método que muestra el menú de niveles luego de un segundo
+                Invoke("CargarMenu", 1f);
+            }
+            //Condicional diseñado para cuando el jugador toque un obstáculo con color diferente al suyo
+            else if (collision.tag != color_actual)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
         
     }

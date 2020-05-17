@@ -89,19 +89,19 @@ public class Control_Niveles : MonoBehaviour
 				nivel10.interactable = true;
 				break;
 					case 11:
-				/*
-				  nivel2.interactable = true;
-					nivel3.interactable = true;
-					nivel4.interactable = true;
-					nivel5.interactable = true;
-					nivel6.interactable = true;
-					nivel7.interactable = true;
-					nivel8.interactable = true;
-					nivel9.interactable = true;
-					nivel10.interactable = true;*/
-				SceneManager.LoadScene("Final");
-					break;
-
+				nivel2.interactable = true;
+				nivel3.interactable = true;
+				nivel4.interactable = true;
+				nivel5.interactable = true;
+				nivel6.interactable = true;
+				nivel7.interactable = true;
+				nivel8.interactable = true;
+				nivel9.interactable = true;
+				nivel10.interactable = true;
+				
+				
+				break;
+				
 		}
 	}
 

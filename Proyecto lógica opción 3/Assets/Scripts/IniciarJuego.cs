@@ -8,4 +8,9 @@ public class IniciarJuego : MonoBehaviour
         //Carga la siguiente escena (FALTA MODIFICAR Y AJUSTARLO CON TODAS LAS ESCENAS)
          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
+
+    public void creditosJuego()
+    {
+        SceneManager.LoadScene("Final");
+    }
 }
