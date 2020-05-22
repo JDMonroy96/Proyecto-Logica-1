@@ -9,6 +9,7 @@ TagManager:
   - Magenta
   - Morado
   - intercambio
+  - Meta
   layers:
   - Default
   - TransparentFX
