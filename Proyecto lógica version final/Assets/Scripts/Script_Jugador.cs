@@ -105,6 +105,7 @@ public class Script_Jugador : MonoBehaviour
         }
     }
 
+    //Este método, carga la escena que contiene el menú de niveles
     public void CargarMenu()
     {
         SceneManager.LoadScene(1);
@@ -113,9 +114,10 @@ public class Script_Jugador : MonoBehaviour
     void Update()
     {
         //Condicional que hará que cada que se termine el click dado por el usuario se le aplique una fuerza al objeto para que salte
+        //Verifica que el juego no esté pausado, para que no haya movimiento durante la pausa
         if ((Input.GetButtonDown("Jump")|| Input.GetMouseButtonDown(0)) && MenuPausa.juego_pausado==false)
         {
-            //al hacer el rimer click o apretar espacio por primera vez, se eliminan las características isKinetic y gravedad=0
+            //al hacer el primer click o apretar espacio por primera vez, se eliminan las características isKinetic y gravedad=0
             //para permitir el movimiento normal del jugador en el juego, además se quita el poder entrar a este condicional
             if(cero_clicks)
             {

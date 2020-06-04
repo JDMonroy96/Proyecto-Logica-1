@@ -11,4 +11,9 @@ public class Script_Slider : MonoBehaviour
         barra_desplazamiento.value = PlayerPrefs.GetFloat("VolumenActual");
     }
 
+    public void ajustarSlider()
+    {
+        barra_desplazamiento.value = PlayerPrefs.GetFloat("VolumenActual");
+    }
+
 }

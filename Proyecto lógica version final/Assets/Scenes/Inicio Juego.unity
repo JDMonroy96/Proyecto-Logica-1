@@ -1390,6 +1390,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3918dd29f18f6844aaf51de73f552172, type: 3}
+--- !u!114 &1167291156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6049325998517264418, guid: 2a6e8900a5637154ab07dc09560767a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6652691405636731255}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9dc46eff229be04db27b7d6f9fe5b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1261658577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,6 +2224,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1261658577}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1167291156}
+        m_MethodName: ajustarSlider
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

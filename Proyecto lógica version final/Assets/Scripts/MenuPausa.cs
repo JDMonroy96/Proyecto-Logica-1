@@ -5,6 +5,7 @@ public class MenuPausa : MonoBehaviour
     //Variable booleana que será usada en otros scripts para verificar el estado del juego (si está pausado o no)
     public static bool juego_pausado = false;
     public GameObject menu_pausa_UI; //objeto que simboliza el menu de pausa
+    public GameObject menu_ajustes_UI;
 
     // Update is called once per frame
     void Update()
@@ -26,6 +27,7 @@ public class MenuPausa : MonoBehaviour
     {
         juego_pausado = false;
         menu_pausa_UI.SetActive(false); //desactiva el menú de pausa
+        menu_ajustes_UI.SetActive(false); //desactiva el menú de ajustes
         Time.timeScale = 1f;
     }
     //Metodo el cual Congela el juego 
@@ -38,6 +40,9 @@ public class MenuPausa : MonoBehaviour
 
     public void cargaMenu()
     {
+        juego_pausado = false;
+        menu_pausa_UI.SetActive(false);//Esto se agrega, para evitar que al iniciar un nivel de nuevo, aparezca el menú
+                                        //de pausa
         Time.timeScale = 1f;//provoca que la aplicación no se quede pausada después de cargar la escena del menú
         SceneManager.LoadScene("Inicio Juego");
     }

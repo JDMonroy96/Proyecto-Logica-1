@@ -4,12 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class Control_Niveles : MonoBehaviour
 {
+	//Variables, que contienen los botónes de niveles a partir del 2 del menú de selección de nivel
 	public Button nivel2, nivel3, nivel4, nivel5, nivel6, nivel7, nivel8, nivel9, nivel10;
 	int nivel_completado;
 
 	// Use this for initialization
 	void Start()
 	{
+		//Al iniciar, se inactivan todos los botones y luego en el Switch, se verifica el nivel más alto pasado,
+		//para reactivar los botones anteriores a este y el próximo a este
 		nivel_completado = PlayerPrefs.GetInt("NivelCompletado");
 		nivel2.interactable = false;
 		nivel3.interactable = false;
@@ -103,11 +106,15 @@ public class Control_Niveles : MonoBehaviour
 		}
 	}
 
+	//Método que carga el nivel, teniendo en cuenta el botón al que se haga click
 	public void cargarNivel(int nivel)
 	{
 		SceneManager.LoadScene(nivel);
 	}
 
+	//Esta función se activa al presionar el botón de Resetear niveles y lo que hace, es desactivar todos los botónes
+	//de los niveles entre 2 y 10 y ajustar la preferencia de NivelCompletado, para que no haya problemas con el método
+	//de Start
 	public void resetearNiveles()
 	{
 		nivel2.interactable = false;

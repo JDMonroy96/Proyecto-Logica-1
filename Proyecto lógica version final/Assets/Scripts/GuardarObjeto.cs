@@ -1,26 +1,14 @@
 ﻿
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GuardarObjeto : MonoBehaviour
 {
-    //Nota: Este script lo iba a utilizar para tratar de que no se reiniciara el sonido en ciertas escenas, pero no
-    //pude acomodarlo bien, entonces, no está ligado a ningún objeto del juego
     public static GuardarObjeto instancia=null;
-    public int escenaActual;//=SceneManager.GetActiveScene().buildIndex;
 
     private void Awake()
     {
-        /*if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            Destroy(gameObject);
-            return;
-        }*/
-        /*if (escenaActual != SceneManager.GetActiveScene().buildIndex)
-        {
-            Destroy(gameObject);
-            return;
-        }*/
+        //Al iniciar, verifica que si no hay un objeto de este tipo, la instancia la toma con referencia a este,
+        //pero si hay otro objeto del mismo tipo, lo destruye para que sólo quede uno
         if (instancia == null)
         {
             instancia = this;
@@ -29,10 +17,8 @@ public class GuardarObjeto : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        /*if(SceneManager.GetActiveScene().buildIndex != 0)
-        {*/
-            DontDestroyOnLoad(gameObject);
-        
+        //Esta parte, guarda el objeto, para que aparezca en todas las escenas
+        DontDestroyOnLoad(gameObject);        
         
     }
 }
